@@ -1,0 +1,17 @@
+# Configuración
+CORPUS_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\corpus"
+BATCH_SIZE = 2
+EPOCHS = 40 # son 10
+LEARNING_RATE = 0.001 # era 0.001
+SEQ_LEN = 128  # Longitud de la secuencia de entrada 128
+EMBEDDING_DIM = 256  # Dimensión de los embeddings
+HIDDEN_DIM = 512  # Dimensión de la capa oculta
+SAVE_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\model"
+
+#
+CORPUS_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\corpus"
+SEQ_LEN = 128  # Longitud de la secuencia de entrada es 128 en realidad
+EMBEDDING_DIM = 256  # Dimensión de los embeddings
+HIDDEN_DIM = 512  # Dimensión de la capa oculta
+SAVE_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\model"
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
