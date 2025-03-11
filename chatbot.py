@@ -1,17 +1,34 @@
 # chatbot.py
 import os
+import re
 import torch
 import torch.nn as nn
+import pickle
 
 # Configuración
 CORPUS_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\corpus"
-SEQ_LEN = 128  # Longitud de la secuencia de entrada es 128 en realidad
-EMBEDDING_DIM = 256  # Dimensión de los embeddings
-HIDDEN_DIM = 512  # Dimensión de la capa oculta
+SEQ_LEN = 128
+EMBEDDING_DIM = 128
+HIDDEN_DIM = 256
 SAVE_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\model"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Tokenizador básico (debe coincidir con el usado en el entrenamiento)
+# Función de preprocesamiento (debe coincidir con train.py)
+def preprocess_text(text):
+    text = text.lower()  # Convertir a minúsculas
+    text = re.sub(r"--", " ", text)  # Reemplazar guiones dobles por espacio
+    text = re.sub(r"-", "", text)  # Reemplazar guiones por espacio en blanco
+    text = re.sub(r"\?", " ? ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"!", " ! ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"¡", " ¡ ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"¿", " ¿ ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r",", " , ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"\.", " . ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"[^a-záéíóúüñ0123456789,.¡¿?!\s]", "", text)  # Eliminar caracteres no alfabéticos
+    text = re.sub(r"\s+", " ", text).strip()  # Eliminar espacios extra y tabulaciones
+    return text
+
+# Tokenizador básico (debe coincidir con train.py)
 class SimpleTokenizer:
     def __init__(self, corpus):
         self.vocab = self.build_vocab(corpus)
@@ -33,7 +50,7 @@ class SimpleTokenizer:
     def decode(self, ids):
         return " ".join([self.idx_to_token.get(i, "<UNK>") for i in ids])
 
-# Modelo de lenguaje simple (debe coincidir con el usado en el entrenamiento)
+# Modelo de lenguaje simple (debe coincidir con train.py)
 class SimpleLanguageModel(nn.Module):
     def __init__(self, vocab_size, embedding_dim, hidden_dim):
         super(SimpleLanguageModel, self).__init__()
@@ -48,11 +65,10 @@ class SimpleLanguageModel(nn.Module):
         return logits
 
 # Cargar el tokenizer
-def load_tokenizer(corpus_dir):
-    file_paths = [os.path.join(corpus_dir, fname) for fname in os.listdir(corpus_dir)]
-    with open(file_paths[0], "r", encoding="utf-8") as f:
-        corpus_text = f.read()
-    return SimpleTokenizer([corpus_text])
+def load_tokenizer(tokenizer_path):
+    with open(tokenizer_path, "rb") as f:
+        tokenizer = pickle.load(f)
+    return tokenizer
 
 # Cargar el modelo entrenado
 def load_model(model_path, vocab_size, embedding_dim, hidden_dim):
@@ -75,20 +91,21 @@ def generate_response(model, tokenizer, prompt, max_length=50):
 # Chatbot por consola
 def main():
     # Cargar el tokenizer
-    tokenizer = load_tokenizer(CORPUS_DIR)
+    tokenizer = load_tokenizer(os.path.join(SAVE_DIR, "tokenizer.pkl"))
 
     # Cargar el modelo entrenado
     model_path = os.path.join(SAVE_DIR, "model.pth")
     model = load_model(model_path, tokenizer.vocab_size, EMBEDDING_DIM, HIDDEN_DIM)
 
-    print("Chatbot: Hola! ¿En qué puedo ayudarte? (Escribe 'salir' para terminar)")
+    print("Rengoku: Hola! ¿En qué puedo ayudarte? (Escribe 'salir' para terminar)")
     while True:
         user_input = input("Tú: ")
         if user_input.lower() == "salir":
-            print("Chatbot: ¡Hasta luego!")
+            print("Rengoku: ¡Hasta luego!")
             break
-        response = generate_response(model, tokenizer, user_input)
-        print(f"Chatbot: {response}")
+        response = generate_response(model, tokenizer, preprocess_text(user_input))
+        print(f"Rengoku: {response}")
+        print("\n")
 
 if __name__ == "__main__":
     main()

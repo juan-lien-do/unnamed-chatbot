@@ -1,20 +1,36 @@
-# train.py
 import os
+import re
 import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
+import pickle
 
 # Configuración
 CORPUS_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\corpus"
-BATCH_SIZE = 2
-EPOCHS = 40 # son 10
-LEARNING_RATE = 0.001 # era 0.001
-SEQ_LEN = 128  # Longitud de la secuencia de entrada 128
-EMBEDDING_DIM = 256  # Dimensión de los embeddings
-HIDDEN_DIM = 512  # Dimensión de la capa oculta
+BATCH_SIZE = 16
+EPOCHS = 40  # era 10
+LEARNING_RATE = 0.0004
+SEQ_LEN = 256
+EMBEDDING_DIM = 256
+HIDDEN_DIM = 256
 SAVE_DIR = r"I:\desarrollo de sistemas\SLM prueba\03\model"
+
+# Función de preprocesamiento
+def preprocess_text(text):
+    text = text.lower()  # Convertir a minúsculas
+    text = re.sub(r"--", " ", text)  # Reemplazar guiones dobles por espacio
+    text = re.sub(r"-", "", text)  # Reemplazar guiones por espacio en blanco
+    text = re.sub(r"\?", " ? ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"!", " ! ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"¡", " ¡ ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"¿", " ¿ ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r",", " , ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"\.", " . ", text)  # Hacer que permanezcan algunos signos
+    text = re.sub(r"[^a-záéíóúüñ0123456789,.¡¿?!\s]", "", text)  # Eliminar caracteres no alfabéticos
+    text = re.sub(r"\s+", " ", text).strip()  # Eliminar espacios extra y tabulaciones
+    return text
 
 # Tokenizador básico
 class SimpleTokenizer:
@@ -46,7 +62,7 @@ class TextDataset(Dataset):
         self.data = []
         for file_path in file_paths:
             with open(file_path, "r", encoding="utf-8") as f:
-                text = f.read()
+                text = preprocess_text(f.read())  # Aplicar preprocesamiento
                 tokens = self.tokenizer.encode(text)
                 for i in range(0, len(tokens) - seq_len, seq_len):
                     self.data.append(tokens[i:i + seq_len])
@@ -74,7 +90,8 @@ class SimpleLanguageModel(nn.Module):
 # Cargar el corpus
 file_paths = [os.path.join(CORPUS_DIR, fname) for fname in os.listdir(CORPUS_DIR)]
 with open(file_paths[0], "r", encoding="utf-8") as f:
-    corpus_text = f.read()
+    corpus_text = preprocess_text(f.read())  # Aplicar preprocesamiento
+
 tokenizer = SimpleTokenizer([corpus_text])
 dataset = TextDataset(file_paths, tokenizer, SEQ_LEN)
 dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
@@ -105,3 +122,7 @@ for epoch in range(EPOCHS):
 if not os.path.exists(SAVE_DIR):
     os.makedirs(SAVE_DIR)
 torch.save(model.state_dict(), os.path.join(SAVE_DIR, "model.pth"))
+
+# Guardar el tokenizer
+with open(os.path.join(SAVE_DIR, "tokenizer.pkl"), "wb") as f:
+    pickle.dump(tokenizer, f)

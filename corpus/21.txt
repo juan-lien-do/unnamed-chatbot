@@ -1,0 +1,431 @@
+
+
+
+                La Plataforma de Actividades de Internet
+
+Estado de esta memoria:
+
+   Este RFC refleja y describe la historia de la Plataforma de
+   Actividades de Internet (IAB) y sus organizaciones subsidiarias. Esta
+   memoria es de carácter informativo y por lo tanto no tiene que ser
+   tomada como un estándar. Esta es una revisión del RFC 1120. La
+   distribución de esta memoria es ilimitada.
+
+1. Introducción
+
+   En 1968 la Agencia de Proyectos de Investigación Avanzada de Defensa
+   de los Estados Unidos (DARPA) realizó un esfuerzo para desarrollar
+   una tecnología que se conoce hoy como conmutación de paquetes. Esta
+   tecnología utiliza en sus orígenes los métodos de conmutación de
+   mensaje, pero fue influenciada fuertemente por el desarrollo de
+   minicomputadores de bajo coste y técnicas de telecomunicación digital
+   a mediados de los 60 [BARAN 64, ROBERTS  70, HEART 70, ROBERTS 78].
+   Un examen de esta interesante tecnología puede encontrase en [IEEE
+   78].
+
+   A principios de los 70, DARPA inició varios programas para investigar
+   el uso de los métodos de conmutación de paquetes en medios
+   alternativos incluyendo radio móvil, satélite y cable [IEEE 78]. El
+   Centro de Investigación de Xerox de Palo Alto (PARC) empezó al mismo
+   tiempo la investigación de la conmutación de paquetes en cable
+   coaxial que al final condujo al desarrollo de las redes de área local
+   Ethernet [METCALFE 76].
+
+   La acertada puesta en práctica de la tecnología de los paquetes vía
+   radio y vía satélite planteó la cuestión de interconectar ARPANET con
+   otros tipos de redes de paquetes. Una posible solución a este
+   problema fue propuesta por Cerf y Kahn [CERF 74] como un protocolo
+   entre redes y un conjunto de puertas de enlace para interconectar
+   dichas redes diferentes.  Esta idea se investigó más a fondo como
+   parte de un programa de investigación en interconexión de redes
+   patrocinado por DARPA y dio lugar a una colección de protocolos de
+   comunicación entre computadores basados en el Transmission Control
+   Protocol original (TCP) y sus allegados de nivel inferior, el
+   Internet Protocol (IP). Estos protocolos conjuntamente con muchos
+   otros desarrollados durante el curso de la investigación, son
+   denominados como colección [Suite] de protocolos TCP/IP [RFC 1140,
+
+   LEINER 85, POSTEL 85, CERF 82, CLARK 86].
+
+   En las primeras etapas del programa de investigación de Internet,
+   solo unos pocos investigadores trabajaron para desarrollar y probar
+   las versiones de los protocolos de Internet. Pasado un cierto tiempo,
+   en 1979, esta actividad aumentó hasta que fue necesario formar a un
+   comité oficioso para dirigir la evolución técnica de la Colección de
+   Protocolos. Este comité pasó a llamarse Plataforma para el Control y
+   Configuración de Internet (ICCB) establecido por el Dr. Vinton Cerf
+   que era entonces el encargado del programa de DARPA para el
+   desarrollo. Como presidente del comité se nombró al Dr. David C.
+   Clark del laboratorio de las Ciencias Computacionales del Instituto
+   de Tecnología de Massachusetts.
+
+   En enero del 1983 la Agencia de Comunicaciones de Defensa, entonces
+   responsable de la operativa de ARPANET, declaró la colección de
+   protocolos TCP/IP iba a ser estándar del mismo ARPANET y que todos
+   los sistemas de red pasasen del Protocolo de Control de Red (NCP) a
+   TCP/IP.  Al final de dicho año, el ICCB fue reorganizado por el Dr.
+   Barry Leiner, sucesor de Cerf en DARPA, alrededor de una serie de
+   trabajos que consideraban diversos aspectos técnicos de internet. El
+   grupo así reorganizado paso a llamarse Plataforma de Actividades de
+   Internet.
+
+   Dado que Internet iba creciendo, fue necesaria la ayuda de
+   organizaciones del gobierno de los Estados Unidos tales como el
+   DARPA, la Fundación Nacional de Ciencia (NSF), el Ministerio de
+   Energía (GAMA) y la Administración Nacional de Aeronáutica y el
+   Espacio (NASA). Los encargados de estas organizaciones, responsables
+   principales de la investigación y desarrollo para el establecimiento
+   de una red de trabajo, formaron un comité federal oficioso para
+   coordinar la investigación de Internet (FRICC) y conjuntamente con el
+   gobierno de los Estados Unidos desarrollar la utilización del sistema
+   Internet. El FRICC patrocinó la mayoría de la investigación en EE.UU.
+   sobre internet, incluyendo la ayuda para la Plataforma de Actividades
+   de Internet y sus organizaciones subsidiarias.
+
+   En 1990, el FRICC pasó a formar parte de una iniciativa mayor
+   patrocinada por el subcomité de redes de trabajo del Comité
+   Coordinador Federal de Ciencia, Ingeniería y Tecnología (FCCSET).
+   Esta reorganización produjo la creación del Concilio Federal de Redes
+   de Trabajo (FNC) y sus grupos de trabajo. Todos los anteriores
+   miembros de FRICC pasaron a tener calidad de miembros del FNC y
+   también fueron incluidos muchos otros representantes del gobierno de
+   EE.UU. El primer presidente del FNC es el Dr. Charles Brownstein de
+   la Fundación Nacional de Ciencia. El FNC es el organismo principal
+   del Gobierno Federal para coordinar las agencias que sustentan
+   Internet. Esto propició la unión con la Oficina de la Política sobre
+   Ciencia y Tecnología (dirigida por el presidente de Science Advisor)
+   que es la responsable de fijar la política sobre ciencia y tecnología
+   que afectan a Internet. Esta oficina confirmó y empleó el
+   planteamiento existente y las actividades operativas de las
+   comunidades populares que crecieron hasta conseguir Internet en los
+   Estados Unidos. El FNC concibe como implicar y proveer a comunidades
+   de usuarios a través de la creación de una plataforma consultiva
+   externa y para coordinar las actividades de Internet con otras
+   iniciativas Federales que van desde el genoma humano y los programas
+   de cambio mundial hasta las actividades educativas. El FNC también ha
+   participado en la creación de la Investigación Nacional y la Red de
+   Trabajo para la Educación en los Estados Unidos.
+
+   A nivel internacional, se formó un Comité Coordinador para la
+   Investigación Intercontinental (CCIRN) que incluye el FNC de EE.UU. y
+   sus homólogos en Europa y Norteamérica y está copresidido por los
+   directores ejecutivos del FNC y la Asociación Europea de Redes de
+   Investigación (RARE), el CCIRN proporciona un foro para el trabajo
+   conjunto entre las principales agencias norteamericanas y europeas y
+   formar así una red de investigación.
+
+2. Plataforma de Actividades de Internet
+
+   La Plataforma de Actividades de Internet (IAB) es el comité
+   coordinador para el diseño, desarrollo e ingeniería de Internet.
+   Internet se puede definir como una colección de mas de dos mil redes
+   usando conmutación de paquetes ubicadas principalmente en los EE.UU.,
+   pero también en muchas otras partes del mundo, todas unidas y
+   funcionando con la colección de protocolos TCP/IP. A su vez, la IAB
+   se define como un comité independiente de investigadores y de
+   profesionales con un interés técnico en el correcto funcionamiento y
+   la evolución del sistema Internet. Los miembros van cambiando con el
+   tiempo ajustándose a las necesidades de ese momento según los
+   intereses de investigación de los participantes, de las necesidades
+   del sistema Internet y de las preocupaciones de los miembros
+   constitutivos de Internet.  Los miembros de la IAB confían plenamente
+   en evolucionar con eficacia para resolver un futuro de alta velocidad
+   a gran escala de Internet. El presidente de la IAB designa nuevos
+   miembros, con el consejo y consentimiento de los miembros restantes.
+   El presidente es elegido por los miembros de la IAB por un periodo de
+   dos años. La IAB se centra en la colección de protocolos TCP/IP, y
+   extensiones del sistema Internet para soportar múltiples protocolos.
+   La IAB tiene dos divisiones subsidiarias principales:
+
+      1)  División de Ingeniería de Internet (IETF)
+
+      2)  División de Investigación de Internet (IRTF)
+
+
+   Cada una de estas divisiones está liderada por un presidente y
+   dirigido por un grupo de trabajo el cual se comunica con la IAB a
+   través de su presidente. Cada división la organiza su presidente,
+   según se requiera, para realizar su cometido. Para la mayor parte, un
+   conjunto de grupos de trabajo realiza el programa de trabajo de cada
+   división.
+
+   El instrumento que utiliza la IAB para publicar e informar de todas
+   sus decisiones a las personas interesadas en Internet y los
+   protocolos TCP/IP son la serie de notas de: Petición de Comentarios
+   (Request for Comments RFC). El archivo de los RFC lo empezó en 1969
+   el Dr. Stephen D. Crocker para tener un medio de documentar el
+   desarrollo de la suite original del protocolo de ARPANET [ RFC 1000
+   ]. El editor en jefe de los RFC es el Dr. Jonathan B. Postel que
+   dirige y ha mantenido la calidad del archivo desde su inicio. Una
+   pequeña parte de estos RFC pasan a ser estándares de Internet. La
+   gran mayoría de los RFC están pensados para estimular la discusión y
+   los comentarios. La pequeña proporción que pasan a ser estándares se
+   marcan de una manera especial en la sección "estado" para que quede
+   indicado el carácter especial del documento. Existe un RFC que se
+   publica regularmente que resume el estado de todos los RFC estándar
+   [RFC 1140].
+
+
+   Los RFC describen protocolos experimentales, además de otras
+   informaciones, con un carácter meramente informativo, y normalmente
+   se envían directamente al editor de los RFC. Cuando se propone un
+   protocolo para que pase a ser estándar, el prototipo primero del
+   anteproyecto se revisa, se comenta y se comprueba su correcta
+   implementación.
+
+   Antes de la publicación de un RFC estándar propuesto, este se publica
+   en un directorio en línea de Internet en forma de anteproyecto para
+   que pueda ser comentado. Normalmente, estos anteproyectos en Internet
+   son documentos de trabajo propios de la IAB o de los grupos de
+   trabajo de las divisiones de ingeniería y de investigación de
+   Internet. Los anteproyectos o bien se someten a la aprobación del
+   redactor de los RFC para su publicación o bien se desechan
+   transcurridos entre 3 y 6 meses. Antes de promocionar un anteproyecto
+   a estándar, se publica dicho anteproyecto en Internet y se inicia un
+   ciclo de revisiones si existen cambios significativos en el RFC.
+
+   La IAB realiza las siguientes funciones:
+
+      1)   Realiza los estándares de Internet,
+
+      2)   Administra el proceso de publicación de los RFC,
+
+      3)   Supervisa el trabajo del IRTF y del IRTF,
+
+      4)   Planifica las estrategias de Internet, buscando
+           ideas y problemas a largo plazo,
+
+      5)   Realiza la conexión política técnica internacional y
+           representativa de la comunidad de Internet, y
+
+      6)   Resuelve los problemas técnicos que no han podido ser
+           tratados por las divisiones IETF o IRTF
+
+   Para complementar el trabajo con el correo electrónico, la IAB
+   celebra unas reuniones trimestrales para repasar la condición de
+   Internet, valorar y aprobar propuestas o adiciones a la colección de
+   protocolos TCP/IP, para fijar las prioridades técnicas de
+   investigación, para discutir las materias en política que pueden
+   requerir la atención de los patrocinadores de Internet, para decidir
+   las altas o bajas de miembros de la IAB y para añadir o eliminar de
+   grupos de trabajo de las divisiones que asesoran al IAB. Normalmente,
+   dos de las reuniones trimestrales se efectúan por medio de
+   videoconferencias (intentando, cuando es posible, hacerlo a través
+   del sistema de paquetes experimental de videoconferencia de
+   Internet). Las reuniones de la IAB se publican en el informe mensual
+   en línea de Internet.
+
+   Los miembros actuales de la IAB son los siguientes:
+
+            Vinton Cerf/CNRI        Director
+            Robert Braden/USC-ISI   Director Ejecutivo
+            David Clark/MIT-LCS     Director del IRTF
+            Phillip Gross/CNRI      Director del IETF
+            Jonathan Postel/USC-ISI Editor de los RFC
+            Hans-Werner Braun/Merit Miembro
+            Lyman Chapin/DG Miembro
+            Stephen Kent/BBN        Miembro
+            Anthony Lauck/Digital   Miembro
+            Barry Leiner/RIACS      Miembro
+            Daniel Lynch/Interop, Inc.      Miembro
+
+3.  División de Ingeniería de Internet
+
+   Internet ha crecido hasta llegar a abarcar una gran cantidad de redes
+   de comunidades académicas y científicas extendidas y dispersas por
+   toda la geografía. Actualmente proporciona una infraestructura apta
+   para comunidades de intereses diversos. Por otra parte, la familia de
+   protocolos de Internet y de los componentes del sistema se ha
+   desplazado desde el campo experimental hasta el ámbito comercial.
+   Para coordinar la operatividad, gerencia y evolución de Internet, la
+   IAB estableció la división de Ingeniería de Internet (IETF). El IETF
+   está presidido por Phillip Gross y gestionado por su Grupo de
+   Administración de Ingeniería de Internet (IESG). La IAB ha delegado
+   al IESG la responsabilidad general de que Internet funcione, de la
+   resolución de todos los protocolos de corto y medio alcance y de las
+   arquitecturas necesarias para conseguir que Internet funcione con
+   eficacia.
+
+   Los compromisos del IETF son:
+
+      1) Responsable para la especificación a corto y medio plazo
+         de los protocolos de Internet y definir y recomendar los
+         estándares para que sean aprobados por la IAB
+
+      2) Proporcionar un foro para el intercambio de información
+         de la comunidad de Internet
+
+      3) Identificar problemas y áreas técnicas problemáticas poco
+         o medio relevantes y convenir con los grupos de trabajo
+         las soluciones a aplicar.
+
+   La División de Ingeniería de Internet es una gran comunidad abierta
+   formada por diseñadores, operadores, fabricantes e investigadores
+   todos inmersos con Internet y la familia de protocolos de Internet.
+   Está formada por ocho áreas técnicas, cada una dirigida por un
+   director técnico de área. Además del presidente del IETF, los
+   directores de área constituyen miembros del IESG. Cada director de
+   área tiene como responsabilidad primaria una actividad de ingeniería
+   de Internet y por lo tanto un subconjunto de los grupos de trabajo
+   del IETF. Los directores de área poseen tareas de crítica importancia
+   y dificultad y han sido seleccionados no solo por su experiencia
+   técnica, sino por su capacidad de dirección y juicio. En la
+   actualidad las ocho áreas y sus directores son:
+
+     1) Aplicaciones -  Russ Hobby/UC-Davis
+     2) Servicios de servidores y usuarios   -  Craig Partridge/BBN
+     3) Servicios de Internet        -  Noel Chiappa/Consultant
+     4) Enrutado     -  Robert Hinden/BBN
+     5) Gerencia de Redes    -  David Crocker/DEC
+     6) Integración OSI    -  Ross Callon/DEC y
+                Robert Hagens/UWisc.
+     7) Operaciones  -  Phill Gross/CNRI (Acting)
+     8) Seguridad    -  Steve Crocker/TIS
+
+   El trabajo del IETF se realiza mediante subcomités que son conocidos
+   como Grupos de Trabajo. En la actualidad existen mas de 40 de estos
+   Grupos de Trabajo. Dichos Grupos están creados para desarrollar sobre
+   una tarea específica y tienen una vida limitada dada la terminación
+   de dicha tarea, aunque hay excepciones. El IETF es la fuente más
+   importante en propuestas de estándares de protocolo, para que
+   finalmente la IAB los apruebe. Las reuniones trimestrales del IETF,
+   las extensas sesiones plenarias así como los informes de cada uno de
+   los Grupos de Trabajo se publican por la Secretaría de la IAB de la
+   Corporación para las Iniciativas de Investigación Nacionales.
+
+4.  División de Investigación de Internet
+
+   Para promocionar la investigación y la creación de nuevas
+   tecnologías, la IAB ha instituido la División de Investigación de
+   Internet (IRTF).
+
+   Dentro del área de los protocolos de red, a veces cuesta distinguir
+   entre investigación e ingeniería, por lo tanto habrá veces que se
+   solaparán las actividades del IETF con las del IRTF. De hecho existe
+   un solapamiento considerable entre de los miembros de los dos grupos,
+   que por otra parte, es considerado vital para el intercambio de
+   tecnología. En general la distinción entre investigación y tecnología
+   es uno de los puntos que más tiempo conlleva (aunque no siempre). El
+   IRTF está más centrado generalmente en comprender que en desarrollar
+   protocolos o productos estándar, aunque a veces para comprenderlos
+   sea necesario desarrollarlos, implementarlos y probarlos.
+
+   El IRTF se define como una comunidad de investigadores de redes,
+   generalmente con Internet como punto de mira. Las tareas del IRTF se
+   administran por su Grupo Administrador de Investigación (IRSG). El
+   presidente del IRTF y el IRSG es David Clark. El IRTF se organiza en
+   varios Grupos de Investigación (RGs) cuyos cargos son designados por
+   el presidente del ISRG. Los cargos designados por el presidente del
+   ISRG de los RG y otros, trabajan para el ISRG. Estos grupos están
+   constituidos normalmente de 10 a 20 miembros, y cada uno cubre un
+   campo amplio de investigación, persiguiendo asuntos específicos,
+   determinados al menos en parte, por el interés de los miembros y por
+   las recomendaciones de la IAB.
+
+   Los miembros actuales que forman el ISRG son los siguientes:
+
+            David Clark/MIT LCS     -   Presidente
+            Robert Braden/USC-ISI   -   Servicios Punto a Punto
+            Douglas Comer/PURDUE    -   Miembro permanente
+            Deborah Estrin/USC      -   Redes Autonomas
+            Stephen Kent/BBN        -   Privacidad y Seguridad
+            Keith Lantz/Consultant  -   Colaboración Tecnológica
+            David Mills/UDEL        -   Miembro permanente
+
+5.  La agenda a corto plazo de la IAB
+   Existen siete focos principales de atención de la IAB para el período
+1989 - 1990:
+
+      1) Estabilidad Operativa
+      2) Servicios para usuarios
+      3) Coexistencia con el OSI
+      4) Facilidades para hacer pruebas
+      5) Seguridad
+      6) Hacer que crezca
+      7) Conseguir más velocidad
+
+   La estabilidad operativa de Internet es un punto crítico que
+   concierne a todos los usuarios. Son necesarias mejores herramientas
+   para recopilar datos operacionales, y de esta forma poder aislar los
+   fallos a todos los niveles y para analizar el funcionamiento del
+   sistema. Abundan las oportunidades para la cooperación que va en
+   aumento entre los operadores de diferentes componentes de Internet
+   [RFC 1109]. Específicamente, los problemas conocidos tendrían que ser
+   repartidos, como por ejemplo las deficiencias de implementación del
+   software para la resolución de nombres de dominio de algunas
+   versiones de BIND. Extender el Protocolo de Puerta de Enlace Externo
+   (EGP) ya que solo es capaz de soportar algunas topologías, mientras
+   que no se especifique un protocolo Inter-Autónomo mas generalizado,
+   es necesario que se cumplan los enlaces entre diferentes topologías y
+   trayectorias de tránsito permitidas. Se podría mejorar la
+   flexibilidad para Internet adoptando todos los fabricantes de routers
+   para Internet, un protocolo común de enrutado para puerta de enlace
+   interno. Se recomienda un esfuerzo importante para alcanzar la
+   conformidad de los requisitos del RFCs anfitrión que fueron
+   publicados en el cuarto trimestre del 1989.
+
+   Entre los servicios de usuario más necesarios, las páginas blancas
+   (servicios de directorio de buzón electrónico) aparece como uno de
+   los más presionados. Los esfuerzos se deben centrar para realizar un
+   despliegue extenso de estas capacidades en Internet para mediados de
+   1990. La IAB recomienda que las instalaciones existentes de páginas
+   blancas y las más nuevas, tales como los X.500, reciban información
+   actualizada de los usuarios y sean accesibles a los usuarios de
+   Internet y a los usuarios de otros sistemas (p.ej., correo
+   electrónico comercial) conectados a Internet. Hay que apoyar
+   fuertemente la conectividad con los transportadores de correo
+   electrónico comercial, así como enlaces a otras redes de
+   investigación en Europa y el resto del mundo.
+
+   Hay que acelerar durante 1990 el desarrollo y despliegue del software
+   de correo electrónico con la privacidad mejorada dado el lanzamiento
+   del software de dominio público que incorpora los estándares del
+   correo electrónico privado [RFC 1113, RFC 1114 y RFC 1115].
+
+   Finalmente, dar ayuda para nuevas o mejoradas aplicaciones tales como
+   la conferencia basada en computador, mensajería multimedia y
+   colaborar en el desarrollo de sistemas de soporte.
+
+   Los recursos de la Red Nacional de Prueba (NNT, National Network
+   Test) previstos por el FRICC se deben aplicar para colaborar con el
+   desarrollo de protocolos y aplicaciones experimentales y dar soporte
+   para comprobar la interoperabilidad entre fabricantes de routers
+   (p.ej., encaminamiento interior y exterior, manejo de red,
+   encaminamiento multiprotocolo y expedición).
+
+   Con respecto al crecimiento de Internet, la atención de la
+   arquitectura debe centrarse en escalar el sistema a los centenares de
+   millones de usuarios y a los centenares de miles de redes. Es
+   necesario analizar los nombres, el direccionamiento, el encaminado y
+   los problemas de navegación ocasionados por ese gran crecimiento. De
+   forma similar, es necesario también, investigar para conocer los
+   límites de la arquitectura actual de Internet, incluyendo la
+   capacidad de la presente familia de protocolos, para hacer frente a
+   velocidades que se encuentran en la gama de los gigabits y los
+   estados latentes que varían entre microsegundos a segundos de
+   duración.
+
+   Hay que hacer que Internet apoye el uso de protocolos del OSI a
+   finales de 1990 o antes, si es posible. La disposición de un
+   protocolo múltiple para el encaminamiento y la expedición entre
+   diversos fabricantes de routers es una meta importante. La
+   introducción de los servicios de correo electrónico X.400 y de la
+   interoperabilidad con el RFC 822/SMTP [ RFC 822, RFC 821, RFC 987,
+   RFC 1026, y RFC 1148 ] hay que anotarlo también para el mismo año
+   1990. Estos esfuerzos necesitarán trabajar conjuntamente con los
+   servicios de páginas blancas mencionadas más arriba. El IETF, en
+   particular, debe establecer un enlace con los distintos grupos de
+   trabajo de la OSI (p.ej., con NIST, RARE, Foro de Dirección de Red )
+   para coordinar y planificar la introducción de la OSI en Internet y
+   para facilitar el registro de la información pertinente en Internet
+   con las diferentes autoridades responsables de estándares de la OSI
+   en los Estados Unidos.
+
+   Finalmente, en el capitulo de la seguridad, es necesario concertar un
+   esfuerzo para desarrollar guías y documentación para los responsables
+   de servidores, referidos a la gestión de configuración, problemas
+   conocidos de seguridad (y sus soluciones) también software y
+   tecnología disponible para mejorar la seguridad y privacidad de los
+   usuarios de Internet.
+
+
